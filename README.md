@@ -1,3 +1,5 @@
-# Useful-Software
-Using HTML5 & CSS3 & JavaScript ES6 built these Softwares
-Guess My Number, JavaScript Quiz, Tip Calculator and To Do List App
+Hi there 👋
+* I'm currently working on something cool! 😉
+* I'm currently learning new stuff everyday 
+* It's Just a Matter of Time
+
