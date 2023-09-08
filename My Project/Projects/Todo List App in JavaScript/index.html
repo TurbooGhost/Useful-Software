@@ -1,36 +1,40 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - youtube.com/codingnepal -->
-<html lang="en" dir="ltr">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css" />
 
-<head>
-  <meta charset="utf-8">
-  <title>Todo List App in JavaScript | CodingNepal</title>
-  <link rel="stylesheet" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Iconscout Link For Icons -->
-  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-</head>
+    <!-- using in head to show the page icon logo -->
+    <link rel="shortcut icon" type="image/png" href="/icon.png" />
+    <!-- extenstion logo for the page in head BUT IN MUST BE IN SAME FOLDER PNG -->
+    <link rel="shortcut icon" type="image/png" href="/todo.png" />
 
-<body>
-  <h1 class="task">Add Your Task Here!</h1>
-  <div class="wrapper">
-    <div class="task-input">
-      <img src="bars-icon.svg" alt="icon">
-      <input type="text" placeholder="Add a new task">
-    </div>
-    <div class="controls">
-      <div class="filters">
-        <span class="active" id="all">All</span>
-        <span id="pending">Pending</span>
-        <span id="completed">Completed</span>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="todo-container">
+      <h1>Todo List</h1>
+      <div class="input-container">
+        <input type="text" class="todo-inputs" placeholder="Add a task..." />
+        <button class="todo-button"><i class="fas fa-plus"></i></button>
       </div>
-      <button class="clear-btn">Clear All</button>
+      <div class="filter-container">
+        <select class="filter-todos">
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="uncompleted">Uncompleted</option>
+        </select>
+      </div>
+      <ul class="todo-list"></ul>
+      <button class="delete-all">Delete All</button>
     </div>
-    <ul class="task-box"></ul>
-  </div>
-  http://127.0.0.1:5503/index.html
-  <script src="script.js"></script>
 
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
