@@ -14,10 +14,10 @@ const todoInputs = document.querySelector(".todo-inputs");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todos");
-let deleteAll = document.querySelector(".delete-all");
+const deleteAll = document.querySelector(".delete-all");
 
 //event listners
-document.addEventListener("DOMContentLoaded", getTodos);
+getTodos();
 todoButton.addEventListener("click", addTodos);
 todoList.addEventListener("click", deleteCheck);
 filterOption.addEventListener("click", filterTodo);
@@ -26,7 +26,6 @@ function addTodos(e) {
   e.preventDefault();
 
   if (todoInputs.value.trim() === "") {
-    // alert("Task cannot be empty");
     return;
   }
 
@@ -49,8 +48,8 @@ function addTodos(e) {
 
   // Edit button
   const editButton = document.createElement("button");
-  editButton.innerHTML = '<i class="fas fa-edit"></i>';
   editButton.classList.add("edit-btn");
+  editButton.innerHTML = '<i class="fas fa-edit"></i>';
   editButton.addEventListener("click", function () {
     newTodo.contentEditable = true;
     newTodo.focus();
@@ -61,7 +60,6 @@ function addTodos(e) {
     if (event.key === "Enter") {
       event.preventDefault(); // Prevents adding a new line
       if (newTodo.innerText.trim() === "") {
-        alert("Task cannot be empty");
         newTodo.focus();
         return;
       }
@@ -71,8 +69,8 @@ function addTodos(e) {
 
   // Trash button
   const trashButton = document.createElement("button");
-  trashButton.innerHTML = '<i class="fas fa-trash"></i>';
   trashButton.classList.add("trash-btn");
+  trashButton.innerHTML = '<i class="fas fa-trash"></i>';
   todoDiv.appendChild(trashButton);
 
   // Append list
@@ -97,29 +95,26 @@ function deleteCheck(e) {
 }
 
 function filterTodo(e) {
-  const todos = todoList.childNodes;
+  const todos = Array.from(todoList.children);
   todos.forEach(function (todo) {
     switch (e.target.value) {
       case "all":
         todo.style.display = "flex";
         break;
       case "completed":
-        if (todo.classList.contains("completed")) {
-          todo.style.display = "flex";
-        } else {
-          todo.style.display = "none";
-        }
+        todo.style.display = todo.classList.contains("completed")
+          ? "flex"
+          : "none";
         break;
       case "uncompleted":
-        if (!todo.classList.contains("completed")) {
-          todo.style.display = "flex";
-        } else {
-          todo.style.display = "none";
-        }
+        todo.style.display = todo.classList.contains("completed")
+          ? "none"
+          : "flex";
         break;
     }
   });
 }
+
 function getTodos() {
   //check
   let todos = [];
@@ -152,12 +147,9 @@ function getTodos() {
   });
 }
 
-// Adding a bounce animation on add button click
 todoButton.addEventListener("click", function () {
-  // Trigger the bounce animation
   this.classList.add("bounce");
 
-  // Remove the bounce class after the animation completes (0.5s)
   setTimeout(() => {
     this.classList.remove("bounce");
   }, 500);
@@ -171,7 +163,11 @@ todoInputs.addEventListener("keydown", function (event) {
 });
 
 deleteAll.onclick = function () {
-  todoList.innerHTML = ""; // Clear the todos from UI
-  // If you're storing tasks in local storage or any other storage, make sure to clear them too
-  window.localStorage.removeItem("todos"); // Assuming "todos" is the key you're using to store them
+  todoList.innerHTML = "";
+  window.localStorage.removeItem("todos");
 };
+
+const themeToggleButton = document.getElementById("themeToggle");
+themeToggleButton.addEventListener("click", function () {
+  document.body.classList.toggle("dark-mode");
+});
