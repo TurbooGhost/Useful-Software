@@ -4,12 +4,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
+
+  margin: 50px;
   padding: 0;
 }
 
 .todo-container {
+  margin: auto 0;
   width: 400px;
   background-color: white;
   padding: 20px;
@@ -149,4 +150,76 @@ button {
 
 .delete-all:hover {
   background-color: #cc0000;
+}
+
+/* Dark Theme */
+body.dark-mode {
+  background-color: #18181b;
+  color: #e4e4e6;
+}
+
+body.dark-mode .todo-container {
+  margin: auto 0;
+  background-color: #212124;
+  border-color: #313136;
+}
+
+body.dark-mode .todo-inputs,
+body.dark-mode .filter-todos {
+  background-color: #29292c;
+  color: #e4e4e6;
+  border-color: #414146;
+}
+
+body.dark-mode .todo-button {
+  background-color: #007bff;
+}
+
+body.dark-mode .todo {
+  background-color: #2c2c30;
+  border-color: #414146;
+}
+
+body.dark-mode .delete-all {
+  background-color: #e43f5a;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+body.dark-mode .delete-all:hover {
+  background-color: #d12a40;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000; /* ensures it's always on top */
+}
+
+/* For the dark theme icon color */
+body.dark-mode .theme-toggle i {
+  color: #e4e4e6;
+}
+
+body,
+.todo-container,
+.todo-inputs,
+.filter-todos,
+.todo,
+.delete-all {
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.todo-container {
+  margin: auto 0;
+  max-height: 80vh;
+  overflow-y: auto;
 }
