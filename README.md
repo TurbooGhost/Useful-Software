@@ -1,4 +1,4 @@
-#Privacy oriented
+# Privacy oriented
 Using HTML5 & CSS3 & JavaScript ES6 built these Softwares:
 
 1. The Shared Bill Tip Calculator considers the cost of the service and chosen tip percentage and total cost.
